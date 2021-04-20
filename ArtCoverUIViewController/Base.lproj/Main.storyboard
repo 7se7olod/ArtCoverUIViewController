@@ -1,24 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EzN-Qj-1hw">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Art CollectionVC-->
+        <scene sceneID="uJp-Ql-3Em">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <collectionViewController id="Cet-ty-hBW" customClass="ArtCollectionVC" customModule="ArtCoverUIViewController" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="always" dataMode="prototypes" id="MGp-zQ-1GN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="T2c-L5-s8A">
+                            <size key="itemSize" width="120" height="120"/>
+                            <size key="estimatedItemSize" width="120" height="120"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="20"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ArtCover1" id="6Ni-vc-xhV" customClass="ArtCover" customModule="ArtCoverUIViewController" customModuleProvider="target">
+                                <rect key="frame" x="20" y="20" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9kH-pp-aME">
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hLx-qX-96P">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="S1A-0X-q8q"/>
+                                                <constraint firstAttribute="height" constant="100" id="rJI-4x-Fgg"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="hLx-qX-96P" firstAttribute="leading" secondItem="9kH-pp-aME" secondAttribute="leading" id="IBh-Z0-xbr"/>
+                                        <constraint firstAttribute="trailing" secondItem="hLx-qX-96P" secondAttribute="trailing" id="bHH-h7-l0K"/>
+                                        <constraint firstAttribute="bottom" secondItem="hLx-qX-96P" secondAttribute="bottom" id="niL-5d-UEo"/>
+                                        <constraint firstItem="hLx-qX-96P" firstAttribute="top" secondItem="9kH-pp-aME" secondAttribute="top" id="uBO-cT-uPV"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <connections>
+                                    <outlet property="coverImageView" destination="hLx-qX-96P" id="sYP-ML-mAr"/>
+                                    <segue destination="Ub7-je-fmQ" kind="show" id="uvM-2R-Vve"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="Cet-ty-hBW" id="mCW-Lq-eZR"/>
+                            <outlet property="delegate" destination="Cet-ty-hBW" id="LrA-dl-bcg"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="D9y-6W-KbD"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ExI-sL-j6R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="892.75362318840587" y="-29.464285714285712"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="gxs-iY-0SU">
+            <objects>
+                <viewController title="Title" id="Ub7-je-fmQ" customClass="PageInfo" customModule="ArtCoverUIViewController" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2wn-Lp-Ogu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZhP-OH-2if">
+                                <rect key="frame" x="0.0" y="138" width="414" height="369.5"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="neX-SX-3Rn">
+                                <rect key="frame" x="20" y="571.5" width="374" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="NoS-BB-w6n"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="NoS-BB-w6n" firstAttribute="trailing" secondItem="neX-SX-3Rn" secondAttribute="trailing" constant="20" id="3Ke-yi-0y7"/>
+                            <constraint firstItem="ZhP-OH-2if" firstAttribute="leading" secondItem="NoS-BB-w6n" secondAttribute="leading" id="7Z5-0F-UGE"/>
+                            <constraint firstItem="ZhP-OH-2if" firstAttribute="top" secondItem="NoS-BB-w6n" secondAttribute="top" constant="50" id="8Os-lr-dHV"/>
+                            <constraint firstItem="ZhP-OH-2if" firstAttribute="trailing" secondItem="NoS-BB-w6n" secondAttribute="trailing" id="Gw5-KB-pNd"/>
+                            <constraint firstItem="neX-SX-3Rn" firstAttribute="leading" secondItem="NoS-BB-w6n" secondAttribute="leading" constant="20" id="Rum-U0-tlH"/>
+                            <constraint firstItem="NoS-BB-w6n" firstAttribute="bottom" secondItem="neX-SX-3Rn" secondAttribute="bottom" constant="257" id="bGQ-18-hAY"/>
+                            <constraint firstItem="neX-SX-3Rn" firstAttribute="top" secondItem="ZhP-OH-2if" secondAttribute="bottom" constant="64" id="loJ-As-juA"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="cZ9-MK-j1k"/>
+                    <connections>
+                        <outlet property="imageForInfo" destination="ZhP-OH-2if" id="fwK-MQ-EsR"/>
+                        <outlet property="labelForInfo" destination="neX-SX-3Rn" id="2L3-jv-djd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mab-Uh-aaO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1740.5797101449277" y="-29.464285714285712"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2Ni-32-Lp1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EzN-Qj-1hw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1MM-mV-crc">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Cet-ty-hBW" kind="relationship" relationship="rootViewController" id="8Xz-2Z-2EE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Emg-a2-k5B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-17.39130434782609" y="-29.464285714285712"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
